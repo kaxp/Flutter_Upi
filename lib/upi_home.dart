@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutterupi/plugin_2.dart';
 import 'package:upi_pay/upi_pay.dart';
 
 class UpiPayment extends StatefulWidget {
@@ -189,7 +190,21 @@ class _UpiPaymentState extends State<UpiPayment> {
                           ),
                         ],
                       ),
-                    )
+                    ),
+
+                    FlatButton(onPressed: (){
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          settings: RouteSettings(name: '/plugin_two'),
+                          pageBuilder: (c, a1, a2) => PluginTwo(),
+                          transitionsBuilder: (c, anim, a2, child) =>
+                              FadeTransition(opacity: anim, child: child),
+                          transitionDuration: Duration(milliseconds: 500),
+                        ),
+                      );
+
+                    }, child: Text("Plugin 2"))
                   ],
                 ),
               )
